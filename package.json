@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testEmployee":"jest ./__tests__/Employee.test.js",
+    "testManager":"jest ./__tests__/Manager.test.js",
+    "testEngineer":"jest ./__tests__/Engineer.test.js",
+    "testIntern":"jest ./__tests__/Intern.test.js"
   },
   "author": "Joe Palmisano",
   "license": "ISC",

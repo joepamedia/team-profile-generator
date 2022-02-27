@@ -127,21 +127,24 @@ const collectEmployeeInfo = (employeeType) => {
   //destructured
 };
 
-// ADD CONDITIONALS, ADD DIFFERENT LOOPS FOR EACH TYPE OF PERSON
+// generates special properties of the workers
 function generateSpecial(worker) {
+  // executes when user creates manager
   if (worker.getRole() === MANAGER_TYPE) {
     return `<li class="list-group-item">${worker.getOfficeNum()}</li>;`;
   }
+  // executes when user creates engineer
   if (worker.getRole() === ENGINEER_TYPE) {
-    return `<li class="list-group-item">${worker.getGithub()}</li>;`;
+    return `<li class="list-group-item">Github: <a target="_blank" href="https://github.com/${worker.getGithub()}">
+    ${worker.getGithub()}</a></li>`;
   } else {
+    // executes when user creates intern
     return `<li class="list-group-item">${worker.getSchool()}</li>;`;
   }
 }
 
 function makeCard(workers) {
   let managerCardHTML = "";
-  // loop. ADD CONDITIONAL
   workers.forEach((worker) => {
     // manager card
     managerCardHTML += `<div class="card bg-dark mb-3 card-spacing" style="width: 18rem">
@@ -149,7 +152,9 @@ function makeCard(workers) {
     <ul class="list-group list-group-flush">
       <li class="list-group-item">${worker.getName()}</li>
       <li class="list-group-item">${worker.getId()}</li>
-      <li class="list-group-item">${worker.getEmail()}</li>
+      <li class="list-group-item">Email: <span id="email"><a href="mailto:${worker.getEmail()}">
+      ${worker.getEmail()}
+      </a></span></li>
       ${generateSpecial(worker)}
     </ul>
   </div>`;
@@ -177,7 +182,7 @@ const createHTML = (employees) => {
       ${makeCard(employees)}
     </body>
     </html>`;
-  console.log(htmlFile);
+
   fs.writeFile("./dist/index.html", htmlFile, (err) => (err ? console.log(err) : console.log("Successfully created index.html!")));
 };
 
