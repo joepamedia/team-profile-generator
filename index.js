@@ -175,7 +175,7 @@ const createHTML = (employees) => {
     </head>
     <body>
     
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid bg-info">
     <div class="container text-center">
       <h1 class="display-4">Team Profile Generator</h1>
       <p class="lead">Check out your team below!</p>
