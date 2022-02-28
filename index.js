@@ -131,7 +131,7 @@ const collectEmployeeInfo = (employeeType) => {
 function generateSpecial(worker) {
   // executes when user creates manager
   if (worker.getRole() === MANAGER_TYPE) {
-    return `<li class="list-group-item">${worker.getOfficeNum()}</li>;`;
+    return `<li class="list-group-item">Office Number: ${worker.getOfficeNum()}</li>`;
   }
   // executes when user creates engineer
   if (worker.getRole() === ENGINEER_TYPE) {
@@ -139,7 +139,7 @@ function generateSpecial(worker) {
     ${worker.getGithub()}</a></li>`;
   } else {
     // executes when user creates intern
-    return `<li class="list-group-item">${worker.getSchool()}</li>;`;
+    return `<li class="list-group-item">School: ${worker.getSchool()}</li>`;
   }
 }
 
@@ -147,11 +147,11 @@ function makeCard(workers) {
   let managerCardHTML = "";
   workers.forEach((worker) => {
     // manager card
-    managerCardHTML += `<div class="card bg-dark mb-3 card-spacing" style="width: 18rem">
-    <div class="card-header">${worker.getRole()}</div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${worker.getName()}</li>
-      <li class="list-group-item">${worker.getId()}</li>
+    managerCardHTML += `<div class="card text-black bg-info d-flex p-1 mx-4" style="width: 16rem">
+    <div class="card-header font-weight-bold text-center h4">${worker.getRole()}</div>
+    <ul class="list-group list-group-flush h6">
+      <li class="list-group-item">Name: ${worker.getName()}</li>
+      <li class="list-group-item">ID: ${worker.getId()}</li>
       <li class="list-group-item">Email: <span id="email"><a href="mailto:${worker.getEmail()}">
       ${worker.getEmail()}
       </a></span></li>
@@ -174,12 +174,16 @@ const createHTML = (employees) => {
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     </head>
     <body>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4 d-f">Team Profile Generator</h1>
-        </div>
-      </div>
+    
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h1 class="display-4">Team Profile Generator</h1>
+      <p class="lead">Check out your team below!</p>
+    </div>
+  </div>
+      <div class="d-flex justify-content-center">
       ${makeCard(employees)}
+      </div>
     </body>
     </html>`;
 
