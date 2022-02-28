@@ -16,7 +16,6 @@
   # Usage
    #### The app is invoked through
    ```
-   bash
    node index
    ```
    From there, the user will be asked questions pertianing to the employees they will create.
@@ -24,24 +23,19 @@
   # Tests
   #### To test every employee type run
   ```
-   bash
    npm run test
    ```
    To individually check an employee type, run
     ```
-   bash
    npm run testEmployee
    ```
      ```
-   bash
    npm run testManager
    ```
    ```
-   bash
    npm run testEngineer
    ```
    ```
-   bash
    npm run testIntern
    ```
 
