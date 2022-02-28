@@ -26,10 +26,11 @@
    npm run test
    ```
    To individually check an employee type, run
-    ```
+   
+   ```
    npm run testEmployee
    ```
-     ```
+   ```
    npm run testManager
    ```
    ```
